@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vivus/0.4.6/vivus.min.js"
+        integrity="sha512-oUUeA7VTcWBqUJD/VYCBB4VeIE0g1pg5aRMiSUOMGnNNeCLRS39OlkcyyeJ0hYx2h3zxmIWhyKiUXKkfZ5Wryg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        section {
+            scroll-margin-top: 0px;
+            /* Adjust according to navbar height */
+        }
+
+        .navbar .navbar-brand,
+        .navbar .navbar-nav .nav-link {
+            cursor: pointer;
+        }
+
+        .cover-full {
+            height: 100vh;
+            width: 100%;
+        }
+
+        #intro {
+            background-color: #637F8A;
+            /* background-image: url(img/background.svg); */
+            /* background-image: url(img/ruinen.jpeg); */
+
+            height: 100vh;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: contain;
+            background-size: cover;
+
+        }
+
+        .nav-button {
+            border: 2px solid white;
+            /* White border */
+            border-radius: 20px;
+            /* Oval/pill shape */
+            color: white;
+            /* Text color */
+            padding: 5px 15px;
+            /* Padding around the text */
+            text-decoration: none;
+            /* Remove underline from links */
+            transition: background-color 0.3s, color 0.3s;
+            /* Smooth transition for hover effect */
+            min-width: 5rem;
+            text-align: center;
+        }
+
+        .nav-button:hover,
+        .nav-button:focus {
+            background-color: white;
+            /* Background color on hover/focus */
+            color: black;
+            /* Text color on hover/focus */
+        }
+
+        .navbar .navbar-nav .nav-link {
+            margin-right: 10px;
+            /* Spacing between buttons */
+        }
+
+
+        .nav-link.active,
+        .nav-button.active {
+            background-color: black !important;
+            /* black background */
+            border-color: black !important;
+            /* Yellow border */
+            color: white !important;
+            /* White text */
+        }
+
+
+        
+
+        @media (max-width: 768px) {
+
+             .navbar-nav a {
+                margin-bottom: .5rem;
+                padding-left: 1rem!important;
+                padding-right: 1rem!important;
+             }
+            }
+
+        @media (min-width: 1400px) {
+
+            .container,
+            .container-lg,
+            .container-md,
+            .container-sm,
+            .container-xl,
+            .container-xxl {
+                max-width: 1620px;
+            }
+        }
+
+        .display-4.fw-normal {
+            position: relative;
+            /* Allows the pseudo-element to be positioned in relation to this element */
+            display: inline-block;
+            /* Adjusts the element's box model to fit the background */
+        }
+
+        /* .display-4.fw-normal::before {
+    content: '';
+    position: absolute; 
+    z-index: -1; 
+    width: 110%; 
+    height: 100%; 
+    background-color: yellow; 
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%) rotate(-5deg); 
+    border-radius: 0%; 
+}
+*/
+        .oval-border {
+            border: 1px solid #333;
+            /* background-color: yellow; */
+            border-radius: 10px;
+            padding: 0px 10px;
+            display: inline-block;
+            line-height: 1.2
+        }
+
+        #map {
+            height: 100vh;
+            width:50vw;
+        }
+
+        .cover-full {
+            height: 100vh;
+            width: 100%;
+        }
+
+        .vertical-center {
+            min-height: 100%;
+            /* Fallback for browsers do not support vh unit */
+            min-height: 100vh;
+            /* These two lines are counted as one :-)       */
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top container  mt-3"> <!-- Consider adding bg-dark for contrast -->
+        <div class="container-xxl">
+            <!-- Logo or brand on the left -->
+            <a class="nav-button" href="#" id="nav-home"><i class="bi bi-brightness-alt-low-fill"></i> cuprit</a>
+
+
+            <!-- Nav items on the right -->
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link nav-button" data-target="services">Dienstleistungen</a>
+                    <a class="nav-link nav-button" data-target="technologies">Open Source Technologien</a>
+                    <a class="nav-link nav-button" data-target="contact">Kontakt</a>
+                </div>
+        </div>
+    </nav>
+
+
+
+
+    <div id="intro"></div>
+
+
+
+    <main>
+        <div class="position-relative overflow-hidden bg-light cover-full" id="services">
+            <div class="position-absolute top-50 start-50 translate-middle">
+                <h1 class="display-4 fw-normal">Was wir machen.</h1>
+                <p class="lead fw-normal">
+                    Wir bieten Beratungsleistung und Integration rund um das Thema Geodaten für den
+                    Wissenschaftsbereich an. Unsere Expertise erstreckt sich über Webanwendungen, Geodatenbanken,
+                    Geodatenmanagement und den Aufbau von GIS-Systemen von klein bis groß.
+                </p>
+                <p class="lead fw-normal">
+                    Wir begleiten unsere Kunden bei:
+                <ul>
+                    <li><b>Datenerhebung:</b> Einsatz von diversen Techniken für die präzise Datensammlung, die für die
+                        wissenschaftliche Forschung unerlässlich ist.
+                    </li>
+                    <li><b>Datenstrukturierung</b> & -verarbeitung: Organisation und Anreicherung von Daten mit
+                        fortgeschrittener Analyse, um sie für aussagekräftige Anwendungen vorzubereiten.
+                    </li>
+                    <li>
+                        <b>Datenveröffentlichung</b> Entwicklung von maßgeschneiderten Webanwendungen und GIS-Plattformen für
+                        den zugänglichen und effizienten Datenaustausch innerhalb der wissenschaftlichen Gemeinschaft.
+                    </li>
+                </ul>
+                Unser Arbeitsprozess stellt sicher, dass Ihre Forschungsdaten präzise erhoben, fachkundig verarbeitet
+                und weitreichend zugänglich gemacht werden.
+                </p>
+            </div>
+        </div>
+
+        <div class="position-relative overflow-hidden  bg-light cover-full" id="technologies">
+            <div class="position-absolute top-50 start-50 translate-middle">
+                <h1 class="display-4 fw-normal">Technologien, die wir nutzen</h1>
+                <p class="lead fw-normal">
+                    Unsere eingesetzte Sofware fokussiert sich auf die Datenverarbeitung
+                    von sturkturierten oder unstrukturieren Vektor- sowie Raster Daten.
+                    Zum Beipsiel unter Verwendung von:
+                </p>
+                <p class="lead fw-normal">
+                    <span class="oval-border">PostgreSQL</span>
+                    <span class="oval-border">PostGIS </span>
+                    <span class="oval-border">GDAL </span>
+                    <span class="oval-border">Open Refine </span>
+                    <span class="oval-border"> OGR </span>
+                    <span class="oval-border"> QGIS </span>
+                    <span class="oval-border"> Qfield</span>
+                    <span class="oval-border">GRASS GIS </span>
+                    <span class="oval-border">SAGA </span>
+                    <span class="oval-border">GeoNode </span>
+                    <span class="oval-border">CKAN </span>
+                    <span class="oval-border">GeoServer </span>
+                    <span class="oval-border">OpenLayers </span>
+                    <span class="oval-border">Leaflet </span>
+                    <span class="oval-border">Processwire </span>
+                    <span class="oval-border"> Django </span>
+                    <span class="oval-border"> ... </span>
+                    <br>
+                <p class="lead fw-normal">
+                    Jedes Projekt ist anders, und wir bemühen uns stets, die jeweils beste Technik für Ihre Anforderung
+                    zu finden.
+                </p>
+                </p>
+            </div>
+        </div>
+
+        <div class="position-relative overflow-hidden bg-light cover-full" id="contact">
+            <div class="row g-0 position-relative">
+                <div class="col-md-6 d-none d-lg-block" id="map">
+                    <!-- Leaflet map will be initialized here -->
+                </div>
+                <div class="col-md-6 d-flex align-items-center justify-content-center">
+                    <div>
+                        <h1 class="display-4 fw-normal">Leipzig.</h1>
+                        <p class="lead fw-normal"><strong>Cuprit GbR</strong><br>Spinnereistraße 7 / Halle 18<br>04179
+                            Leipzig<br><a href="mailto:info@cuprit.net">info@cuprit.net</a>
+                        <br>
+                        Impressum
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const nav = document.querySelector('.navbar');
+            const intro = document.getElementById('intro');
+            const navLinks = document.querySelectorAll('.nav-link, .nav-button');
+
+            function checkNav() {
+                const navHeight = nav.offsetHeight;
+                const introPosition = intro.offsetTop;
+                const introHeight = intro.offsetHeight;
+                const scrollPosition = window.pageYOffset;
+
+                if (scrollPosition > introPosition - navHeight && scrollPosition < introPosition + introHeight) {
+                    // If nav is over #intro, set text and border to white
+                    navLinks.forEach(link => {
+                        link.style.color = '#fff';
+                        link.style.borderColor = '#fff';
+                        link.style.backgroundColor = "#637F8A";
+
+                    });
+                } else {
+                    // If nav is not over #intro, set text and border to black
+                    navLinks.forEach(link => {
+                        link.style.color = '#000';
+                        link.style.borderColor = '#000';
+                        link.style.backgroundColor = '#fff';
+
+                    });
+                }
+            }
+
+            // Call checkNav() on scroll and on page load
+            window.addEventListener('scroll', checkNav);
+            checkNav();
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            // Remove active class from all nav links and buttons
+            function removeActiveClasses() {
+                document.querySelectorAll('.nav-link, .nav-button').forEach(link => {
+                    link.classList.remove('active');
+                });
+            }
+
+            // Event listeners for nav links
+            document.querySelectorAll('.nav-link, .nav-button').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault(); // Prevent default anchor behavior
+                    const targetId = e.target.getAttribute('data-target') || 'intro'; // Use 'intro' if no data-target attribute
+                    const targetElement = document.getElementById(targetId);
+
+                    // Remove active class from all and add to clicked one, except nav-home
+                    if (e.target.id !== 'nav-home') {
+                        removeActiveClasses();
+                        e.target.classList.add('active');
+                    }
+
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+
+            // Scroll to top when 'cuprit' is clicked and remove active classes
+            document.getElementById('nav-home').addEventListener('click', function (e) {
+                removeActiveClasses();
+                this.blur(); // Remove focus from the nav-home button
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+
+    <script>
+        new Vivus('intro', {     
+    duration: 200,
+    animTimingFunction: Vivus.EASE, 
+    file: 'img/background2.svg' });
+    </script>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script>
+        var map = L.map('map', {zoomControl: false}).setView([51.327000, 12.317950], 13);
+
+        L.tileLayer('https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        var marker = L.marker([51.327000, 12.317950], {
+            icon: L.icon({
+                iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png',
+                shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+                iconSize: [25, 41],
+                iconAnchor: [12, 41],
+                popupAnchor: [1, -34],
+                shadowSize: [41, 41]
+            })
+        }).addTo(map);
+        marker.bindPopup("<b>Cuprit GbR</b>").openPopup();
+
+    </script>
+
+</body>
+
+</html>
