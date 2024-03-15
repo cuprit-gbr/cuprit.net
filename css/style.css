@@ -144,7 +144,8 @@ p.headline {
 
 
 .splash-image {
-    
+    max-height: 70vh;
+    max-width: 100%;
 }
 
 
