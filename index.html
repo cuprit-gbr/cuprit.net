@@ -10,152 +10,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vivus/0.4.6/vivus.min.js"
         integrity="sha512-oUUeA7VTcWBqUJD/VYCBB4VeIE0g1pg5aRMiSUOMGnNNeCLRS39OlkcyyeJ0hYx2h3zxmIWhyKiUXKkfZ5Wryg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
+        <link rel="stylesheet" href="css/style.css" />
 
-        section {
-            scroll-margin-top: 0px;
-            /* Adjust according to navbar height */
-        }
-
-        .navbar .navbar-brand,
-        .navbar .navbar-nav .nav-link {
-            cursor: pointer;
-        }
-
-        .cover-full {
-            height: 100vh;
-            width: 100%;
-        }
-
-        #intro {
-            background-color: #637F8A;
-            /* background-image: url(img/background.svg); */
-            /* background-image: url(img/ruinen.jpeg); */
-
-            height: 100vh;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: contain;
-            background-size: cover;
-
-        }
-
-        .nav-button {
-            border: 2px solid white;
-            /* White border */
-            border-radius: 20px;
-            /* Oval/pill shape */
-            color: white;
-            /* Text color */
-            padding: 5px 15px;
-            /* Padding around the text */
-            text-decoration: none;
-            /* Remove underline from links */
-            transition: background-color 0.3s, color 0.3s;
-            /* Smooth transition for hover effect */
-            min-width: 5rem;
-            text-align: center;
-        }
-
-        .nav-button:hover,
-        .nav-button:focus {
-            background-color: white;
-            /* Background color on hover/focus */
-            color: black;
-            /* Text color on hover/focus */
-        }
-
-        .navbar .navbar-nav .nav-link {
-            margin-right: 10px;
-            /* Spacing between buttons */
-        }
-
-
-        .nav-link.active,
-        .nav-button.active {
-            background-color: black !important;
-            /* black background */
-            border-color: black !important;
-            /* Yellow border */
-            color: white !important;
-            /* White text */
-        }
-
-
-        
-
-        @media (max-width: 768px) {
-
-             .navbar-nav a {
-                margin-bottom: .5rem;
-                padding-left: 1rem!important;
-                padding-right: 1rem!important;
-             }
-            }
-
-        @media (min-width: 1400px) {
-
-            .container,
-            .container-lg,
-            .container-md,
-            .container-sm,
-            .container-xl,
-            .container-xxl {
-                max-width: 1620px;
-            }
-        }
-
-        .display-4.fw-normal {
-            position: relative;
-            /* Allows the pseudo-element to be positioned in relation to this element */
-            display: inline-block;
-            /* Adjusts the element's box model to fit the background */
-        }
-
-        /* .display-4.fw-normal::before {
-    content: '';
-    position: absolute; 
-    z-index: -1; 
-    width: 110%; 
-    height: 100%; 
-    background-color: yellow; 
-    top: 50%;
-    left: 50%; 
-    transform: translate(-50%, -50%) rotate(-5deg); 
-    border-radius: 0%; 
-}
-*/
-        .oval-border {
-            border: 1px solid #333;
-            /* background-color: yellow; */
-            border-radius: 10px;
-            padding: 0px 10px;
-            display: inline-block;
-            line-height: 1.2
-        }
-
-        #map {
-            height: 100vh;
-            width:50vw;
-        }
-
-        .cover-full {
-            height: 100vh;
-            width: 100%;
-        }
-
-        .vertical-center {
-            min-height: 100%;
-            /* Fallback for browsers do not support vh unit */
-            min-height: 100vh;
-            /* These two lines are counted as one :-)       */
-            display: flex;
-            align-items: center;
-        }
-    </style>
 </head>
 
 <body>
@@ -163,7 +19,7 @@
     <nav class="navbar navbar-expand-lg fixed-top container  mt-3"> <!-- Consider adding bg-dark for contrast -->
         <div class="container-xxl">
             <!-- Logo or brand on the left -->
-            <a class="nav-button" href="#" id="nav-home"><i class="bi bi-brightness-alt-low-fill"></i> cuprit</a>
+            <a class="nav-button logo" href="#" id="nav-home">cuprit</a>
 
 
             <!-- Nav items on the right -->
@@ -176,11 +32,26 @@
     </nav>
 
 
+    <div id="intro">
+        <div class="cover-full position-relative">
+            <div class="container position-absolute top-50 start-50 translate-middle">
+                <div class="row ">
+                    <div class="col position-relative" style="height:70vh">
+                        <img src="img/tower.png" alt="" class="inline-block position-absolute top-50 start-50 translate-middle h-100">
+                    </div>
+                    <div class="col text-light position-relative"  style="height:70vh">
+                        <div class="inline-block position-absolute top-50 start-50 translate-middle">
+                        <p class="fw-normal display-1 headline">collect<br>process<br>&&nbsp;publish.</p>
+                        <p class="display-6">Data services for Science and culture.</p>
+                    </div>
+                    </div>
 
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <div id="intro"></div>
-
-
+    </div>
 
     <main>
         <div class="position-relative overflow-hidden bg-light cover-full" id="services">
@@ -247,11 +118,11 @@
         </div>
 
         <div class="position-relative overflow-hidden bg-light cover-full" id="contact">
-            <div class="row g-0 position-relative">
-                <div class="col-md-6 d-none d-lg-block" id="map">
-                    <!-- Leaflet map will be initialized here -->
+            <div class="row g-0 position-relative cover-full">
+                <div class="col-md-6 d-none d-lg-block">
+                    <div id="map"></div>
                 </div>
-                <div class="col-md-6 d-flex align-items-center justify-content-center">
+                <div class="col-sm-12 col-md-6 col-6 d-flex align-items-center justify-content-center">
                     <div>
                         <h1 class="display-4 fw-normal">Leipzig.</h1>
                         <p class="lead fw-normal"><strong>Cuprit GbR</strong><br>Spinnereistraße 7 / Halle 18<br>04179
@@ -264,9 +135,7 @@
             </div>
         </div>
 
-
     </main>
-
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -343,12 +212,12 @@
         });
     </script>
 
-    <script>
+    <!-- <script>
         new Vivus('intro', {     
     duration: 200,
     animTimingFunction: Vivus.EASE, 
     file: 'img/background2.svg' });
-    </script>
+    </script> -->
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
