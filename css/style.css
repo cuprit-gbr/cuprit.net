@@ -120,7 +120,7 @@ section {
     /* Adjusts the element's box model to fit the background */
 }
 
-/* .display-4.fw-normal::before {
+.display-4.fw-normal::before {
     content: '';
     position: absolute; 
     z-index: -1; 
@@ -132,7 +132,7 @@ section {
     transform: translate(-50%, -50%) rotate(-5deg); 
     border-radius: 0%; 
 }
-*/
+
 .oval-border {
     border: 1px solid #333;
     /* background-color: yellow; */
