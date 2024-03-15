@@ -7,10 +7,9 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vivus/0.4.6/vivus.min.js"
-        integrity="sha512-oUUeA7VTcWBqUJD/VYCBB4VeIE0g1pg5aRMiSUOMGnNNeCLRS39OlkcyyeJ0hYx2h3zxmIWhyKiUXKkfZ5Wryg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
 </head>
 
@@ -19,30 +18,31 @@
     <nav class="navbar navbar-expand-lg fixed-top container  mt-3"> <!-- Consider adding bg-dark for contrast -->
         <div class="container-xxl">
             <!-- Logo or brand on the left -->
-            <a class="nav-button logo" href="#" id="nav-home">cuprit</a>
+            <a class="nav-link nav-button logo intro" href="#" id="nav-home" data-target="intro"><i data-feather="zap"></i> cuprit</a>
 
 
             <!-- Nav items on the right -->
                 <div class="navbar-nav ms-auto">
-                    <a class="nav-link nav-button" data-target="services">Dienstleistungen</a>
-                    <a class="nav-link nav-button" data-target="technologies">Open Source Technologien</a>
-                    <a class="nav-link nav-button" data-target="contact">Kontakt</a>
+                    <a class="nav-link nav-button intro" data-target="services">Dienstleistungen</a>
+                    <a class="nav-link nav-button intro" data-target="technologies">Open Source Technologien</a>
+                    <a class="nav-link nav-button intro" data-target="contact">Kontakt</a>
                 </div>
         </div>
     </nav>
 
 
+<main>
     <div id="intro">
         <div class="cover-full position-relative">
             <div class="container position-absolute top-50 start-50 translate-middle">
                 <div class="row ">
                     <div class="col position-relative" style="height:70vh">
-                        <img src="img/tower.png" alt="" class="inline-block position-absolute top-50 start-50 translate-middle h-100">
+                        <img src="img/tower.png" alt="" class="inline-block position-absolute top-50 start-50 translate-middle w-100">
                     </div>
                     <div class="col text-light position-relative"  style="height:70vh">
                         <div class="inline-block position-absolute top-50 start-50 translate-middle">
                         <p class="fw-normal display-1 headline">collect<br>process<br>&&nbsp;publish.</p>
-                        <p class="display-6">Data services for Science and culture.</p>
+                        <p class="display-6">services for science and culture.</p>
                     </div>
                     </div>
 
@@ -53,7 +53,7 @@
 
     </div>
 
-    <main>
+
         <div class="position-relative overflow-hidden bg-light cover-full" id="services">
             <div class="position-absolute top-50 start-50 translate-middle">
                 <h1 class="display-4 fw-normal">Was wir machen.</h1>
@@ -137,110 +137,13 @@
 
     </main>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const nav = document.querySelector('.navbar');
-            const intro = document.getElementById('intro');
-            const navLinks = document.querySelectorAll('.nav-link, .nav-button');
-
-            function checkNav() {
-                const navHeight = nav.offsetHeight;
-                const introPosition = intro.offsetTop;
-                const introHeight = intro.offsetHeight;
-                const scrollPosition = window.pageYOffset;
-
-                if (scrollPosition > introPosition - navHeight && scrollPosition < introPosition + introHeight) {
-                    // If nav is over #intro, set text and border to white
-                    navLinks.forEach(link => {
-                        link.style.color = '#fff';
-                        link.style.borderColor = '#fff';
-                        link.style.backgroundColor = "#637F8A";
-
-                    });
-                } else {
-                    // If nav is not over #intro, set text and border to black
-                    navLinks.forEach(link => {
-                        link.style.color = '#000';
-                        link.style.borderColor = '#000';
-                        link.style.backgroundColor = '#fff';
-
-                    });
-                }
-            }
-
-            // Call checkNav() on scroll and on page load
-            window.addEventListener('scroll', checkNav);
-            checkNav();
-        });
+<script src="https://unpkg.com/feather-icons"></script>
+<script>
+    feather.replace();
     </script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-
-            // Remove active class from all nav links and buttons
-            function removeActiveClasses() {
-                document.querySelectorAll('.nav-link, .nav-button').forEach(link => {
-                    link.classList.remove('active');
-                });
-            }
-
-            // Event listeners for nav links
-            document.querySelectorAll('.nav-link, .nav-button').forEach(link => {
-                link.addEventListener('click', function (e) {
-                    e.preventDefault(); // Prevent default anchor behavior
-                    const targetId = e.target.getAttribute('data-target') || 'intro'; // Use 'intro' if no data-target attribute
-                    const targetElement = document.getElementById(targetId);
-
-                    // Remove active class from all and add to clicked one, except nav-home
-                    if (e.target.id !== 'nav-home') {
-                        removeActiveClasses();
-                        e.target.classList.add('active');
-                    }
-
-                    if (targetElement) {
-                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                });
-            });
-
-            // Scroll to top when 'cuprit' is clicked and remove active classes
-            document.getElementById('nav-home').addEventListener('click', function (e) {
-                removeActiveClasses();
-                this.blur(); // Remove focus from the nav-home button
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        });
-    </script>
-
-    <!-- <script>
-        new Vivus('intro', {     
-    duration: 200,
-    animTimingFunction: Vivus.EASE, 
-    file: 'img/background2.svg' });
-    </script> -->
-
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<script src="js/nav.js"></script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    <script>
-        var map = L.map('map', {zoomControl: false}).setView([51.327000, 12.317950], 13);
-
-        L.tileLayer('https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-
-        var marker = L.marker([51.327000, 12.317950], {
-            icon: L.icon({
-                iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png',
-                shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-                iconSize: [25, 41],
-                iconAnchor: [12, 41],
-                popupAnchor: [1, -34],
-                shadowSize: [41, 41]
-            })
-        }).addTo(map);
-        marker.bindPopup("<b>Cuprit GbR</b>").openPopup();
-
-    </script>
+<script src="js/map.js"></script>
 
 </body>
 
