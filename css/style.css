@@ -146,15 +146,9 @@ p.headline {
 
 @media (max-width: 768px) {
 
-    .navbar-nav a {
-        margin-bottom: .5rem;
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
-    }
-
     p.headline {
-        font-size: 5rem !important;
-        line-height: 5rem;
+        font-size: 4rem !important;
+        line-height: 4rem;
         hyphens:none;
     }
 
@@ -163,7 +157,7 @@ p.headline {
         transform: none!important;
         left: auto!important;
         top: auto!important;
-        padding-top: 190px;
+        padding-top: 170px;
         padding-left: 15px;
         padding-right: 15px;
     }
@@ -174,6 +168,36 @@ p.headline {
         padding-left: 15px;
         padding-right: 15px;
     }
+
+    .logo {
+        border: none;
+        font-size: 1.75rem;
+        transform: translateY(-10px);
+        letter-spacing: -1px;
+        background-color: none;
+    }
+    
+    .nav-button {
+        border-radius: 4px;
+        padding: 0px!important;
+        text-decoration: none;
+        transition: background-color 0.3s, color 0.3s;
+        min-width: auto;
+        width: 155px;
+        text-align: left!important;
+        overflow: hidden;
+        display: inline-block;
+        border: none!important;
+    }
+
+    .navbar .navbar-nav .nav-link {
+        margin-right: none!important; 
+    }
+
+    #intro {
+        margin-bottom: 2rem;
+    }
+
 }
 
 @media (min-width: 1400px) {
