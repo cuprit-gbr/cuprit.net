@@ -129,7 +129,7 @@ section {
 p.headline {
     font-size: 6rem !important;
     font-weight: bold !important;
-    line-height: 6rem;
+    line-height: 5rem;
     letter-spacing: -2px;
     hyphens: none;
 }
